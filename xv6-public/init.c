@@ -20,13 +20,15 @@ main(void)
   dup(0);  // stderr
 
   for(;;){
-    printf(1, "init: starting sh\n");
+    printf(1, "Inicia mi Sistema Operativo chido. \n");
     pid = fork();
     if(pid < 0){
       printf(1, "init: fork failed\n");
       exit();
     }
     if(pid == 0){
+		//Con ls - Durante el proceso de inicio se la pasa imprimiendo infinitamente todos los archivos en el directorio del sistema operativo. 
+		//Con "Nohayprograma" - se queda en un loop infinito diciendo exec sh failed nada más
       exec("sh", argv);
       printf(1, "init: exec sh failed\n");
       exit();
