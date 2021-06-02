@@ -14,17 +14,21 @@ int main(int argc, char **argv) {
 
     fread(&newstudent,sizeof(newstudent),1,forigen);
     if(atributo == "nombre" && strcmp(newstudent.name,dato) == 0){
-        printf("%s %s %d %d \n", newstudent.name,newstudent.lastname,newstudent.id,newstudent.semestre);
-        break;
+        strcpy(newstudent.name, dato):
+        fseek(forigen, -1 * sizeof(newstudent), SEEK_CUR);
+        fwrite(&newstudent, sizeof(newstudent), 1 , forigen);
     }else if(atributo == "apellido" && strcmp(newstudent.lastname,dato) == 0){
-        printf("%s %s %d %d \n", newstudent.name,newstudent.lastname,newstudent.id,newstudent.semestre);
-        break;
+        strcpy(newstudent.lastname, dato):
+        fseek(forigen, -1 * sizeof(newstudent), SEEK_CUR);
+        fwrite(&newstudent, sizeof(newstudent), 1 , forigen);
     }else if(atributo == "id" && newstudent.id == atoi(dato)){
-        printf("%s %s %d %d \n", newstudent.name,newstudent.lastname,newstudent.id,newstudent.semestre);
-        break;
+        newstudent.id = atoi(dato):
+        fseek(forigen, -1 * sizeof(newstudent), SEEK_CUR);
+        fwrite(&newstudent, sizeof(newstudent), 1 , forigen);
     }else if(atributo == "semestre" && newstudent.semestre == atoi(dato)){
-        printf("%s %s %d %d \n", newstudent.name,newstudent.lastname,newstudent.id,newstudent.semestre);
-        break;
+        newstudent.semestre = atoi(dato):
+        fseek(forigen, -1 * sizeof(newstudent), SEEK_CUR);
+        fwrite(&newstudent, sizeof(newstudent), 1 , forigen);
   }
   fclose(forigen);
 }
